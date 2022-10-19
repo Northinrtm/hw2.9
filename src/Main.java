@@ -1,6 +1,7 @@
-import java.util.HashMap;
+import java.util.*;
 import java.util.Map;
-import java.util.Random;
+
+import static java.util.Arrays.asList;
 
 public class Main {
     Map<String, Integer> map = new HashMap<>();
@@ -26,6 +27,16 @@ public class Main {
         for (int i = 0; i <= 10; i++) {
             m.map.put(randomName.randomIdentifier() + " " + randomName.randomIdentifier(), random.nextInt());
         }
-        System.out.println(m.map);
+        Map<String, List<Integer>> map1 = new HashMap<>();
+        for (int i = 0; i < 5; i++) {
+            map1.put(randomName.randomIdentifier(),
+                    new ArrayList<>(asList(new Integer[]{random.nextInt(1000), random.nextInt(1000), random.nextInt(1000)})));
+        }
+        System.out.println(map1);
+        Map<String, Integer> map2 = new HashMap<>();
+        for (Map.Entry<String, List<Integer>> pair : map1.entrySet()) {
+            map2.put(pair.getKey(), pair.getValue().get(0) + pair.getValue().get(1) + pair.getValue().get(2));
+        }
+        System.out.println(map2);
     }
 }
