@@ -38,5 +38,17 @@ public class Main {
             map2.put(pair.getKey(), pair.getValue().get(0) + pair.getValue().get(1) + pair.getValue().get(2));
         }
         System.out.println(map2);
+        Map<Integer, String> map3 = new LinkedHashMap<>();
+        for (int i = 0;i<10;i++){
+            int a = random.nextInt(100);
+            System.out.print(a + " ");
+            String s = randomName.randomIdentifier();
+            System.out.print(s + " ");
+            map3.put(a,s);
+        }
+        System.out.print("\n");
+        for (Map.Entry<Integer,String> pair: map3.entrySet()) {
+            System.out.print(pair + " ");
+        }
     }
 }
